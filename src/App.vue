@@ -29,6 +29,7 @@ export default {
       axios.get(endPoint)
       .then(result => {
         console.log(result.data.results);
+        store.filmList = result.data.results;
       })
     }
   },

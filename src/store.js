@@ -8,5 +8,8 @@ export const store = reactive ({
 
     // input della search
     searchTitle:'',
+
+    // lista di oggetti che si va a popolare dopo la ricerca
+    filmList:[],
 })
 
