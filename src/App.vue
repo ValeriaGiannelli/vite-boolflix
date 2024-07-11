@@ -1,16 +1,19 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from './components/AppHeader.vue'
 
 export default {
-  
+  components: {
+      AppHeader,
+  }
 }
 </script>
 
 <template>
+  <AppHeader />
 
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style lang="scss">
+@use './styles/general.scss' as *;
 
 </style>
