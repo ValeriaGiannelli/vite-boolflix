@@ -1,18 +1,27 @@
 <script>
+import {store} from '../store.js';
+
     export default {
-        name: "AppHeader"
+        name: "AppHeader",
+        data(){
+            return {
+                store,
+            }
+        }
     }
+
 </script>
 
 <template>
     <div class="bg-dark container">
-
+        <!-- logo -->
         <div class="logo">
             BOOLFLIX
         </div>
+        <!-- input di ricerca -->
         <div>
-            <input class="search-bar" type="text" placeholder="search title">
-            <button>Search</button>
+            <input class="search-bar" type="text" placeholder="search title" v-model="store.searchTitle">
+            <button @click="$emit('searchMovie')">Search</button>
         </div>
     </div>
 
