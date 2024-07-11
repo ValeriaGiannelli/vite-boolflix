@@ -4,16 +4,6 @@ export default {
     props: {
         infoFilm: Object,
     },
-    data(){
-        return{
-            imgFlag: "en.png",
-        }
-    },
-    methods:{
-        getImagePath: function(imgPath){
-            return new URL(`../assets/img/${imgPath}`, import.meta.url).href;
-        }
-    }
 }
 </script>
 
@@ -23,9 +13,8 @@ export default {
             <ul>
                 <li>Titolo: {{ infoFilm.title }}</li>
                 <li>Titolo originale: {{ infoFilm.original_title }}</li>
-                <li>Lingua: {{ infoFilm.original_language }}
-                    <img  :scr="getImagePath(imgFlag)"  alt="">
-                    <img  scr="../assets/img/en.png"  alt="">
+                <li> 
+                    <img  :src="`/flags/${infoFilm.original_language}.png`" onerror="src='/flags/country.png'" :alt="infoFilm.original_language">
                 </li>
                 <li>Voto: {{ infoFilm.vote_average }}</li>
             </ul>
