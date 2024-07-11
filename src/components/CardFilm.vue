@@ -4,12 +4,24 @@ export default {
     props: {
         infoFilm: Object,
     },
+    data(){
+        return{
+            ratingStar:0,
+        }
+    },
     methods:{
         vote(){
             return Math.ceil(this.infoFilm.vote_average / 2);
+        },
+        displayStar(){
+            this.ratingStar = this.vote();
         }
+    },
+    mounted(){
+        this.displayStar();
     }
 }
+
 </script>
 
 <template>
@@ -23,7 +35,10 @@ export default {
                     <!-- bandiera -->
                     <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
                 </li>
-                <li>Voto: {{ vote() }}</li>
+                <li>Voto: {{ vote() }}
+                    <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
+                    <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
+                </li>
             </ul>
         </div>
 
