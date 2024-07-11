@@ -1,5 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
+import AppContainerList from './components/AppContainerList.vue'
 
 // import axios
 import axios from "axios"
@@ -10,6 +11,7 @@ import {store} from './store.js'
 export default {
   components: {
       AppHeader,
+      AppContainerList,
   },
   data(){
     return{
@@ -42,6 +44,10 @@ export default {
 
 <template>
   <AppHeader @searchMovie="getMovie"/>
+
+  <main>
+    <AppContainerList />
+  </main>
 
 </template>
 
