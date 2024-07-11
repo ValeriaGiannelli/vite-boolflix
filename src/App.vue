@@ -21,6 +21,12 @@ export default {
     }
   },
   methods:{
+    // metodo che farà partire le ricerche su entrambe le sezioni
+    search(){
+      this.getMovie();
+      this.getSerie();
+    },
+
     // metodo che farà la chiamata per prendere il film
     getMovie(){
       // metto in una variabile l'url
@@ -46,21 +52,20 @@ export default {
       }
       axios.get(endPoint)
       .then(result => {
-        // console.log(result.data.results);
+        console.log(result.data.results);
         store.serieList = result.data.results;
       })
     }
   },
 
   created(){
-    this.getMovie();
-    this.getSerie();
+    this.search();
   }
 }
 </script>
 
 <template>
-  <AppHeader @searchMovie="getMovie"/>
+  <AppHeader @searchMovie="search"/>
 
   <main>
     <AppContainerList />
