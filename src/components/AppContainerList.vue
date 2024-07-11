@@ -23,15 +23,16 @@ export default {
     <h2>Film</h2>
     <div class="container">
         
-        <!-- card dei film ripresa dal componente CardDesign -->
+        <!-- card dei film ripresa dal componente CardMovie -->
         <CardFilm v-for="film in store.filmList" :key="film.id" :infoFilm="film"/>
 
     </div>
+
     <h2>Serie</h2>
     <div class="container">
         
-        <!-- card dei film ripresa dal componente CardDesign -->
-        <CardSerie v-for="serie in store.filmList" :key="serie.id" :infoSerie="serie"/>
+        <!-- card dei film ripresa dal componente CardSerie -->
+        <CardSerie v-for="serie in store.serieList" :key="serie.id" :infoSerie="serie"/>
 
     </div>
 
