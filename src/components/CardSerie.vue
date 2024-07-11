@@ -12,12 +12,12 @@ export default {
         <!-- card per i film -->
         <div class="card">
             <ul>
-                <!-- <li>Titolo: {{ infoSerie.title }}</li>
-                <li>Titolo originale: {{ infoSerie.original_title }}</li>
+                <li>Titolo: {{ infoSerie.name }}</li>
+                <li>Titolo originale: {{ infoSerie.original_name }}</li>
                 <li> 
-                    <img  :src="`/flags/${infoFilm.original_language}.png`" onerror="src='/flags/country.png'" :alt="infoFilm.original_language">
+                    <img  :src="`/flags/${infoSerie.original_language}.png`" onerror="src='/flags/country.png'" :alt="infoSerie.original_language">
                 </li>
-                <li>Voto: {{ infoFilm.vote_average }}</li> -->
+                <li>Voto: {{ infoSerie.vote_average }}</li>
             </ul>
         </div>
     </div>
