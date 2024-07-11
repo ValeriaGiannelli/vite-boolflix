@@ -25,5 +25,11 @@ export default {
 .card{
     width: 200px;
     height: 400px;
+    background-color: gray;
+    text-align: center;
+
+    ul{
+        list-style: none;
+    }
 }
 </style>

@@ -29,5 +29,6 @@ export default {
 <style lang="scss" scoped>
 .container{
     flex-wrap: wrap;
+    gap: 10px
 }
 </style>
