@@ -1,12 +1,14 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppContainerList from './components/AppContainerList.vue'
-
 // import axios
 import axios from "axios"
 
 // import store
 import {store} from './store.js'
+
+import AppHeader from './components/AppHeader.vue'
+import AppContainerList from './components/AppContainerList.vue'
+
+
 
 export default {
   components: {
