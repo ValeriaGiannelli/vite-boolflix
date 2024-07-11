@@ -4,6 +4,11 @@ export default {
     props: {
         infoSerie: Object,
     },
+    methods:{
+        vote(){
+            return Math.ceil(this.infoSerie.vote_average / 2);
+        }
+    }
 }
 </script>
 
@@ -18,7 +23,7 @@ export default {
                     <!-- bandiera  -->
                     <img :src="infoSerie.original_language ? `/flags/${infoSerie.original_language}.png` : '/flags/country.png'" :alt="infoSerie.original_language">
                 </li>
-                <li>Voto: {{ infoSerie.vote_average }}</li>
+                <li>Voto: {{vote()}}</li>
             </ul>
         </div>
 

@@ -4,6 +4,11 @@ export default {
     props: {
         infoFilm: Object,
     },
+    methods:{
+        vote(){
+            return Math.ceil(this.infoFilm.vote_average / 2);
+        }
+    }
 }
 </script>
 
@@ -18,7 +23,7 @@ export default {
                     <!-- bandiera -->
                     <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
                 </li>
-                <li>Voto: {{ infoFilm.vote_average }}</li>
+                <li>Voto: {{ vote() }}</li>
             </ul>
         </div>
 
@@ -39,6 +44,13 @@ export default {
             width: 50px;
             height:50px;
         }
+    }
+}
+
+.poster{
+    img{
+        width: 342px;
+        height: 513px;
     }
 }
 </style>
