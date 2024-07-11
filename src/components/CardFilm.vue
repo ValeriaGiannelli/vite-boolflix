@@ -15,10 +15,16 @@ export default {
                 <li>Titolo: {{ infoFilm.title }}</li>
                 <li>Titolo originale: {{ infoFilm.original_title }}</li>
                 <li> 
-                    <img  :src="`/flags/${infoFilm.original_language}.png`" onerror="src='/flags/country.png'" :alt="infoFilm.original_language">
+                    <!-- bandiera -->
+                    <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
                 </li>
                 <li>Voto: {{ infoFilm.vote_average }}</li>
             </ul>
+        </div>
+
+        <div class="poster">
+            <!-- immagine poster -->
+            <img :src="infoFilm.poster_path ? `https://image.tmdb.org/t/p/w342${infoFilm.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoFilm.title">
         </div>
     </div>
 
@@ -26,10 +32,6 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    width: 200px;
-    height: 400px;
-    background-color: gray;
-    text-align: center;
 
     ul{
         list-style: none;

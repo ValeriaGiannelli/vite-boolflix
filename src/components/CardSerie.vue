@@ -15,10 +15,16 @@ export default {
                 <li>Titolo: {{ infoSerie.name }}</li>
                 <li>Titolo originale: {{ infoSerie.original_name }}</li>
                 <li> 
-                    <img  :src="`/flags/${infoSerie.original_language}.png`" onerror="src='/flags/country.png'" :alt="infoSerie.original_language">
+                    <!-- bandiera  -->
+                    <img :src="infoSerie.original_language ? `/flags/${infoSerie.original_language}.png` : '/flags/country.png'" :alt="infoSerie.original_language">
                 </li>
                 <li>Voto: {{ infoSerie.vote_average }}</li>
             </ul>
+        </div>
+
+        <div class="poster">
+            <!-- immagine poster -->
+            <img :src="infoSerie.poster_path ? `https://image.tmdb.org/t/p/w342${infoSerie.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoSerie.name">
         </div>
     </div>
 
@@ -26,17 +32,19 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    width: 200px;
-    height: 400px;
-    background-color: gray;
-    text-align: center;
-
     ul{
         list-style: none;
         img{
             width: 50px;
             height:50px;
         }
+    }
+}
+
+.poster{
+    img{
+        width: 342px;
+        height: 513px;
     }
 }
 </style>
