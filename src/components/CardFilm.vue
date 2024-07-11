@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "CardDesign",
+    name: "CardFilm",
     props: {
         infoFilm: Object,
     },
@@ -9,6 +9,7 @@ export default {
 
 <template>
     <div class="container">
+        <!-- card per i film -->
         <div class="card">
             <ul>
                 <li>Titolo: {{ infoFilm.title }}</li>

@@ -2,12 +2,14 @@
 // importo lo store
 import {store} from '../store.js';
 
-import CardDesign from './CardDesign.vue'
+import CardFilm from './CardFilm.vue'
+import CardSerie from './CardSerie.vue'
 
 export default {
     name: "AppContainerList",
     components: {
-        CardDesign,
+        CardFilm,
+        CardSerie,
     },
     data(){
         return{
@@ -18,9 +20,18 @@ export default {
 </script>
 
 <template>
+    <h2>Film</h2>
     <div class="container">
+        
         <!-- card dei film ripresa dal componente CardDesign -->
-        <CardDesign v-for="film in store.filmList" :key="film.id" :infoFilm="film"/>
+        <CardFilm v-for="film in store.filmList" :key="film.id" :infoFilm="film"/>
+
+    </div>
+    <h2>Serie</h2>
+    <div class="container">
+        
+        <!-- card dei film ripresa dal componente CardDesign -->
+        <CardSerie v-for="serie in store.filmList" :key="serie.id" :infoSerie="serie"/>
 
     </div>
 

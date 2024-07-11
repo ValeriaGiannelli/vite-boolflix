@@ -32,14 +32,29 @@ export default {
 
       axios.get(endPoint)
       .then(result => {
-        console.log(result.data.results);
+        // console.log(result.data.results);
         store.filmList = result.data.results;
+      })
+    },
+
+    // metodo per le serie tv
+    getSerie(){
+      let endPoint = store.apiURLSerie;
+
+      if(store.searchTitle !== ''){
+        endPoint += `${store.searchTitle}`
+      }
+      axios.get(endPoint)
+      .then(result => {
+        // console.log(result.data.results);
+        store.serieList = result.data.results;
       })
     }
   },
 
   created(){
     this.getMovie();
+    this.getSerie();
   }
 }
 </script>
