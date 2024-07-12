@@ -7,7 +7,6 @@ export default {
     data(){
         return{
             ratingStar:0,
-            show: true,
         }
     },
     methods:{
@@ -26,34 +25,44 @@ export default {
 </script>
 
 <template>
-    <div class="container card"  @mouseenter="show = false" @mouseleave="show = true">
-        <!-- card per i film -->
-        <div class="card_info">
-            <ul>
-                <li>Titolo: {{ infoFilm.title }}</li>
-                <li>Titolo originale: {{ infoFilm.original_title }}</li>
-                <li> 
-                    <!-- bandiera -->
-                    <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
-                </li>
-                <li>Voto: {{ vote() }}
-                    <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
-                    <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
-                </li>
-            </ul>
-        </div>
 
-        <div class="poster">
-            <!-- immagine poster -->
-            <img v-show="show" :src="infoFilm.poster_path ? `https://image.tmdb.org/t/p/w342${infoFilm.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoFilm.title">
+    <div class="container card">
+        <!-- contenitore di entrambe le facce della card -->
+        <div class="card_all">
+
+            <div class="poster" >
+                <!-- immagine poster -->
+                <img :src="infoFilm.poster_path ? `https://image.tmdb.org/t/p/w342${infoFilm.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoFilm.title">
+            </div>
+
+            <!-- informazioni sul film -->
+            <div class="card_info">
+                <ul>
+                    <li>Titolo: {{ infoFilm.title }}</li>
+                    <li>Titolo originale: {{ infoFilm.original_title }}</li>
+                    <li> 
+                        <!-- bandiera -->
+                        <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
+                    </li>
+                    <li>Voto: {{ vote() }}
+                        <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
+                        <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
+                    </li>
+                </ul>
+            </div>
+
         </div>
+        
     </div>
 
 </template>
 
 <style lang="scss" scoped>
-.card_info{
+@use '../styles/general.scss' as *; 
 
+// le condizioni per il flip della card sono su general
+
+.card_info{
     ul{
         list-style: none;
         img{
