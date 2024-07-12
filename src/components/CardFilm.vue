@@ -7,6 +7,7 @@ export default {
     data(){
         return{
             ratingStar:0,
+            show: true,
         }
     },
     methods:{
@@ -25,9 +26,9 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container card"  @mouseenter="show = false" @mouseleave="show = true">
         <!-- card per i film -->
-        <div class="card">
+        <div class="card_info">
             <ul>
                 <li>Titolo: {{ infoFilm.title }}</li>
                 <li>Titolo originale: {{ infoFilm.original_title }}</li>
@@ -44,14 +45,14 @@ export default {
 
         <div class="poster">
             <!-- immagine poster -->
-            <img :src="infoFilm.poster_path ? `https://image.tmdb.org/t/p/w342${infoFilm.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoFilm.title">
+            <img v-show="show" :src="infoFilm.poster_path ? `https://image.tmdb.org/t/p/w342${infoFilm.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoFilm.title">
         </div>
     </div>
 
 </template>
 
 <style lang="scss" scoped>
-.card{
+.card_info{
 
     ul{
         list-style: none;

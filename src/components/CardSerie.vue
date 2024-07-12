@@ -6,6 +6,7 @@ export default {
     },
     data(){
         return{
+            show: true,
             ratingStar: 0,
         }
     },
@@ -24,9 +25,9 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <!-- card per i film -->
-        <div class="card">
+    <div class="container card" @mouseenter="show = false" @mouseleave="show = true">
+        
+        <div class="card_info" >
             <ul>
                 <li>Titolo: {{ infoSerie.name }}</li>
                 <li>Titolo originale: {{ infoSerie.original_name }}</li>
@@ -34,6 +35,7 @@ export default {
                     <!-- bandiera  -->
                     <img :src="infoSerie.original_language ? `/flags/${infoSerie.original_language}.png` : '/flags/country.png'" :alt="infoSerie.original_language">
                 </li>
+
                 <li>Voto: {{vote()}}
                     <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
                     <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
@@ -41,16 +43,18 @@ export default {
             </ul>
         </div>
 
+        <!-- card per i film -->
         <div class="poster">
             <!-- immagine poster -->
-            <img :src="infoSerie.poster_path ? `https://image.tmdb.org/t/p/w342${infoSerie.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoSerie.name">
+            <img v-show="show" :src="infoSerie.poster_path ? `https://image.tmdb.org/t/p/w342${infoSerie.poster_path}` : '/posters/poster-holder.jpg'" :alt="infoSerie.name">
         </div>
     </div>
 
 </template>
 
 <style lang="scss" scoped>
-.card{
+
+.card_info{
     ul{
         list-style: none;
         img{
@@ -61,6 +65,7 @@ export default {
 }
 
 .poster{
+
     img{
         width: 342px;
         height: 513px;

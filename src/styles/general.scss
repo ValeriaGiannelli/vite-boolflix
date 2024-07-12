@@ -9,7 +9,14 @@
     align-items: center;
 }
 
-.card{
+.container.card{
+    position: relative;
+    .poster{
+        position: absolute;
+    }
+}
+
+.card_info{
     width: 342px;
     height: 513px;
     background-color: gray;
