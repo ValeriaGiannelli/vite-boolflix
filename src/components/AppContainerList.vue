@@ -50,20 +50,28 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
 
-.start_page{
-    background-color: gray;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1{
-        font-size: 50px;
-    }
+// .start_page{
+//     background-color: gray;
+//     height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     h1{
+//         font-size: 50px;
+//     }
+// }
+
+h2{
+    font-size: 50px;
+    padding-left: 20px;
+    background-color:brown;
 }
 
 .container{
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 40px;
+    padding:20px;
 }
 
 .hidden{

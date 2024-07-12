@@ -14,6 +14,22 @@
     height: 513px;
     background-color: gray;
     text-align: center;
+    padding: 20px;
+    ul{
+        list-style: none;
+        li{
+            font-size: 20px;
+            color: white;
+            margin-bottom: 10px;
+            span{
+                font-weight: bold;
+            }
+        }
+        img{
+            width: 50px;
+            height:50px;
+        }
+    }
 }
 
 // condizioni per il flip della card
@@ -21,6 +37,7 @@
     width: 342px;
     height: 513px;
     perspective: 1000px;
+    padding: 0;
 }
 
 .card_all{
@@ -53,4 +70,5 @@
     background-color: black;
     color: white;
     transform: rotateY(180deg);
+    overflow-y: auto;
 }

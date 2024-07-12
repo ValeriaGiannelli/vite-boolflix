@@ -38,6 +38,8 @@ export default {
             <div class="card_info" >
                 <ul>
                     <li>Titolo: {{ infoSerie.name }}</li>
+
+                    
                     <li>Titolo originale: {{ infoSerie.original_name }}</li>
                     <li> 
                         <!-- bandiera  -->
@@ -48,6 +50,8 @@ export default {
                         <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
                         <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
                     </li>
+
+                    <li><span>Overview:</span> {{ infoSerie.overview }}</li>
                 </ul>
             </div>
 

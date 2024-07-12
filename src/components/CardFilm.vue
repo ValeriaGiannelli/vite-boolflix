@@ -38,16 +38,18 @@ export default {
             <!-- informazioni sul film -->
             <div class="card_info">
                 <ul>
-                    <li>Titolo: {{ infoFilm.title }}</li>
-                    <li>Titolo originale: {{ infoFilm.original_title }}</li>
+                    <li><span>Titolo:</span> {{ infoFilm.title }}</li>
+                    <li><span>Titolo originale:</span> {{ infoFilm.original_title }}</li>
                     <li> 
                         <!-- bandiera -->
                         <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
                     </li>
-                    <li>Voto: {{ vote() }}
+                    <li><span>Voto:</span> {{ vote() }}
                         <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
                         <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
                     </li>
+                    <li><span>Overview:</span> {{ infoFilm.overview }}</li>
+                    
                 </ul>
             </div>
 

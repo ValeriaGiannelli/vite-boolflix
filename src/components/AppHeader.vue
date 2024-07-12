@@ -40,15 +40,18 @@ import {store} from '../store.js';
     padding: 20px;
     .logo{
         color: red;
+        font-size: 50px;
     }
 
     .search-bar{
         padding: 10px;
-        margin-right: 10px
+        margin-right: 10px;
+        font-size: 20px;
     }
 
     button{
         padding: 10px;
+        font-size: 20px;
     }
 }
 
