@@ -7,6 +7,7 @@ export default {
     data(){
         return{
             ratingStar:0,
+            // emptyStar:0,
         }
     },
     methods:{
@@ -15,6 +16,7 @@ export default {
         },
         displayStar(){
             this.ratingStar = this.vote();
+            // this.emptyStar = 5 - this.vote();
         }
     },
     mounted(){
@@ -38,17 +40,38 @@ export default {
             <!-- informazioni sul film -->
             <div class="card_info">
                 <ul>
-                    <li><span>Titolo:</span> {{ infoFilm.title }}</li>
-                    <li><span>Titolo originale:</span> {{ infoFilm.original_title }}</li>
-                    <li> 
-                        <!-- bandiera -->
+                    <!-- titolo -->
+                    <li>
+                        <span>Titolo:</span> {{ infoFilm.title }}
+                    </li>
+
+                    <!-- titolo originale -->
+                    <li>
+                        <span>Titolo originale:</span> {{ infoFilm.original_title }}
+                    </li>
+
+                    <!-- bandiera della linigua -->
+                    <li>
                         <img  :src="infoFilm.original_language ? `/flags/${infoFilm.original_language}.png` : '/flags/country.png'" :alt="infoFilm.original_language">
                     </li>
-                    <li><span>Voto:</span> {{ vote() }}
+
+                    <!-- voto in numeri -->
+                    <li>
+                        <span>Voto:</span> {{ vote() }}
+                    </li>
+
+                    <!-- voto in stelle -->
+                    <li> 
                         <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
                         <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
+
+
                     </li>
-                    <li><span>Overview:</span> {{ infoFilm.overview }}</li>
+                    
+                    <!-- overview del film/serie -->
+                    <li>
+                        <span>Overview:</span> {{ infoFilm.overview }}
+                    </li>
                     
                 </ul>
             </div>

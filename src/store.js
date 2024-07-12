@@ -17,5 +17,8 @@ export const store = reactive ({
 
     // lista di oggetti contenenti le info delle serie tv
     serieList:[],
+
+    // l'utente ha fatto la ricerca
+    userSearched: false,
 })
 

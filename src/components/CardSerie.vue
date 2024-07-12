@@ -37,21 +37,36 @@ export default {
             <!-- informazioni sulla seria -->
             <div class="card_info" >
                 <ul>
-                    <li>Titolo: {{ infoSerie.name }}</li>
+                    <!-- titolo -->
+                    <li>
+                        Titolo: {{ infoSerie.name }}
+                    </li>
 
-                    
-                    <li>Titolo originale: {{ infoSerie.original_name }}</li>
+                    <!-- titolo originale -->
+                    <li>
+                        Titolo originale: {{ infoSerie.original_name }}
+                    </li>
+
+                    <!-- bandiera della linigua -->
                     <li> 
-                        <!-- bandiera  -->
                         <img :src="infoSerie.original_language ? `/flags/${infoSerie.original_language}.png` : '/flags/country.png'" :alt="infoSerie.original_language">
                     </li>
 
-                    <li>Voto: {{vote()}}
+                    <!-- voto in numeri -->
+                    <li>
+                        Voto: {{vote()}}                        
+                    </li>
+
+                    <!-- voto in stelle -->
+                    <li>
                         <!-- ciclo per 5 volte e verifico se l'indice è minore o uguale del valore di rating dato. Se minore metto la stella piena, altrimenti vuota -->
                         <font-awesome-icon v-for="index in 5" :key="index" :icon="index <= ratingStar ? ['fas', 'star'] : ['far', 'star']"/>
                     </li>
 
-                    <li><span>Overview:</span> {{ infoSerie.overview }}</li>
+                    <!-- overview del film/serie -->
+                    <li>
+                        <span>Overview:</span> {{ infoSerie.overview }}
+                    </li>
                 </ul>
             </div>
 

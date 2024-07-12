@@ -21,12 +21,12 @@ export default {
 
 <template>
     <!-- schermata iniziale -->
-    <!-- <div class="start_page" :class="{'hidden' : store.searchTitle}">
+    <div class="start_page" v-show="!store.userSearched">
         <h1>Ricerca il tuo film o serie tv</h1>
-    </div> -->
+    </div>
 
     <!-- divisione della ricerca -->
-    <!-- <div :class="{'hidden' : !store.searchTitle}"> -->
+    <div v-show="store.userSearched">
         <h2>Film</h2>
         <div class="container">
             
@@ -42,7 +42,7 @@ export default {
             <CardSerie v-for="serie in store.serieList" :key="serie.id" :infoSerie="serie"/>
 
         </div>
-    <!-- </div> -->
+    </div>
    
 
 </template>
@@ -50,16 +50,16 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
 
-// .start_page{
-//     background-color: gray;
-//     height: 100vh;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     h1{
-//         font-size: 50px;
-//     }
-// }
+.start_page{
+    background-color: gray;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        font-size: 50px;
+    }
+}
 
 h2{
     font-size: 50px;

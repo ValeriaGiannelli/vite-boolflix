@@ -25,6 +25,7 @@ export default {
     search(){
       this.getMovie();
       this.getSerie();
+      this.searchedTitle();
     },
 
     // metodo che farà la chiamata per prendere il film
@@ -55,6 +56,19 @@ export default {
         console.log(result.data.results);
         store.serieList = result.data.results;
       })
+    }, 
+
+    // metodo per dire che la ricerca è stata fatta
+    searchedTitle(){
+      if(store.searchTitle === ''){
+        store.userSearched = false;
+        // console.log(store.filmList);
+        console.log(store.userSearched);
+        // return store.userSearched = true
+      } else {
+        store.userSearched = true;
+      }
+      
     }
   },
 
